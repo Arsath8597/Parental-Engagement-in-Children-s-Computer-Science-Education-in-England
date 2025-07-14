@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Login = () => {
-  const [role, setRole] = useState("Student");
-
-  const roles = ["Student", "Staff", "admin"];
   return (
     <div
       style={{
@@ -16,29 +13,19 @@ const Login = () => {
       className="flex items-center justify-center w-full min-h-screen"
     >
       <div className="bg-white rounded-xl shadow-xl p-8 w-full max-w-md">
-        <div className="flex justify-center gap-3 mb-6">
-          {roles.map((r) => (
-            <button
-              key={r}
-              onClick={() => setRole(r)}
-              className={`bg-[#6B50CF] text-white px-4 py-2 rounded-full hover:bg-[#5a40ba] transition ${
-                role === r
-                  ? "bg-[#6B50CF] text-white"
-                  : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-              }`}
-            >
-              {r.charAt(0).toUpperCase() + r.slice(1)}
-            </button>
-          ))}
-        </div>
+        <div className="flex justify-center gap-3 mb-6"></div>
 
         <h1 className="text-2xl font-bold text-center text-[#6B50CF] mb-6">
-          Sign In as {role}
+          Sign In as Studnet
         </h1>
 
         <div className="space-y-4">
-          <Input placeholder="Enter Email" />
-          <Input placeholder="Enter Password" />
+          <Input placeholder="Student Id" />
+          <Input placeholder="First Name" />
+          <Input placeholder="Secound Name" />
+          <Input placeholder="Email" />
+          <Input placeholder="Password" />
+          <Input placeholder="Confirm Password" />
         </div>
 
         <div className="mt-6">
@@ -46,23 +33,16 @@ const Login = () => {
         </div>
 
         <p className="text-center text-gray-600 mt-4">
-          {role === "Student" ? (
-            <>
-              Already haven't an account?{" "}
-              <Link
-                to="/signup"
-                className="text-[#6B50CF] font-semibold underline"
-              >
-                Register here
-              </Link>
-            </>
-          ) : (
-            ""
-          )}
+          <>
+            Already have an account?{" "}
+            <Link to="/" className="text-[#6B50CF] font-semibold underline">
+              Login here
+            </Link>
+          </>
         </p>
 
         <div className="mt-6">
-          <p className="text-center text-gray-500 mb-2">Or sign in with</p>
+          <p className="text-center text-gray-500 mb-2">Or sign Up with</p>
           <div className="flex justify-center gap-4">
             <button className="bg-red-500 hover:bg-red-600 text-white p-3 rounded-full transition">
               <FaGoogle />
