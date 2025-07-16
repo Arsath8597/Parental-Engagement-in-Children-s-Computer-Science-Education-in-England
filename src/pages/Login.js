@@ -1,81 +1,68 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "../components/Input";
 import Button from "../components/button";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Login = () => {
-  const [role, setRole] = useState("Student");
-
-  const roles = ["Student", "Staff", "admin"];
   return (
     <div
-      style={{
-        background: "linear-gradient(to bottom, #2D1B4D, #6B50CF)",
-      }}
       className="flex items-center justify-center w-full min-h-screen"
+      style={{
+        background: "linear-gradient(to right top, #cfd9df, #e2ebf0)",
+      }}
     >
-      <div className="bg-white rounded-xl shadow-xl p-8 w-full max-w-md">
-        <div className="flex justify-center gap-3 mb-6">
-          {roles.map((r) => (
-            <button
-              key={r}
-              onClick={() => setRole(r)}
-              className={`bg-[#6B50CF] text-white px-4 py-2 rounded-full hover:bg-[#5a40ba] transition ${
-                role === r
-                  ? "bg-[#6B50CF] text-white"
-                  : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-              }`}
-            >
-              {r.charAt(0).toUpperCase() + r.slice(1)}
-            </button>
-          ))}
-        </div>
-
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="backdrop-blur-lg bg-white/30 border border-white/40 rounded-2xl shadow-xl p-8 w-full max-w-md"
+      >
         <h1 className="text-2xl font-bold text-center text-[#6B50CF] mb-6">
-          Sign In as {role}
+          Parent Login
         </h1>
 
         <div className="space-y-4">
           <Input placeholder="Enter Email" />
-          <Input placeholder="Enter Password" />
+          <Input placeholder="Enter Password" type="password" />
         </div>
 
         <div className="mt-6">
-          <Button title="Sign In" />
+          <Button title="Login" />
         </div>
 
         <p className="text-center text-gray-600 mt-4">
-          {role === "Student" ? (
-            <>
-              Already haven't an account?{" "}
-              <Link
-                to="/signup"
-                className="text-[#6B50CF] font-semibold underline"
-              >
-                Register here
-              </Link>
-            </>
-          ) : (
-            ""
-          )}
+          Don’t have an account?{" "}
+          <Link to="/signup" className="text-[#6B50CF] font-semibold underline">
+            Register here
+          </Link>
         </p>
 
         <div className="mt-6">
-          <p className="text-center text-gray-500 mb-2">Or sign in with</p>
+          <p className="text-center text-gray-500 mb-2">Or login with</p>
           <div className="flex justify-center gap-4">
-            <button className="bg-red-500 hover:bg-red-600 text-white p-3 rounded-full transition">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="bg-red-500 hover:bg-red-600 text-white p-3 rounded-full"
+            >
               <FaGoogle />
-            </button>
-            <button className="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full transition">
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full"
+            >
               <FaGithub />
-            </button>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition">
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full"
+            >
               <FaLinkedin />
-            </button>
+            </motion.button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,12 +1,7 @@
 import React from "react";
-import Sidebar from "./sidebar";
 
 const parents = () => {
-  return (
-    <div>
-      <Sidebar />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default parents;

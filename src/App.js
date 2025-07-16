@@ -1,20 +1,20 @@
 import "./App.css";
-import Button from "../src/components/button";
 import { Routes, Route } from "react-router-dom";
 import Login from "../src/pages/Login";
 import SignIn from "../src/pages/Signup";
-import StudentHome from "../src/Student/Landing";
-import StudentHomeDashboard from "../src/Student/home";
-import Parents from "./Student/parents";
-import Event from "./Student/Event";
-import Feedback from "./Student/Feedback";
-import Material from "./Student/Material";
+import StudentHomeDashboard from "./Parents/home";
+import Parents from "./Parents/parents";
+import Event from "./Parents/Event";
+import Feedback from "./Parents/Feedback";
+import Material from "./Parents/Material";
+import Landing from "./Landing";
 
 function App() {
   return (
     <div className="font-[poppins]">
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignIn />} />
         <Route path="/studnethome" element={<StudentHomeDashboard />} />
         <Route path="/studnethome/parents" element={<Parents />} />
