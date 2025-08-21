@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaBookOpen } from "react-icons/fa";
 import CourseImg from "../../Images/—Pngtree—blue color splash texture backgound_5808134.png"; // Use your own image path
 
-const ProgressCard = ({ percentage = 75, courseTitle = "Web Development" }) => {
+const ProgressCard = ({ percentage = 75, courseTitle = "Tutorials" }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const ProgressCard = ({ percentage = 75, courseTitle = "Web Development" }) => {
   }, [percentage]);
 
   return (
-    <div className="w-full max-w-[400px] h-[230px] mt-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-xl hover:scale-[1.03] transition-transform duration-300 flex items-center gap-4">
+    <div className="w-full max-w-[400px] h-[200px]  bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 shadow-xl hover:scale-[1.03] transition-transform duration-300 flex items-center gap-4">
       {/* Image section */}
       <div className="w-24 h-24 rounded-xl overflow-hidden shadow-lg border border-white/20">
         <img
